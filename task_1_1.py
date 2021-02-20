@@ -11,4 +11,5 @@ elif hour <= duration < day:
     print(duration // hour,  'час', duration // minute % minute, 'мин', duration % minute, 'сек' )
 else:
     print(duration // day, 'дн', duration % day // hour, 'час', duration // minute % minute, 'мин', duration % minute, 'сек')
+    #ff
 
