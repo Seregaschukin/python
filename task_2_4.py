@@ -15,6 +15,7 @@ price = [57.8, 46.51, 97, 45.6, 567, 0.47, 86, 84, 66, 5]
 for cost in price:
     cost_rub = int(cost)
     cost_coin = round((cost-cost_rub)*100)
+
     if 0 < cost_coin < 10:
         cost_coin = f"0{cost_coin}"
     elif cost_coin == 0:
@@ -27,7 +28,8 @@ print(f"\tid перед сортировкой {id(price)}")
 price.sort()
 print(f"\tid после сортировки {id(price)}")
 lst_descending = list(reversed(price))
+print(f'Новый список по убыванию {lst_descending}')
 print("5 самых дорогих товаров:")
-for cost in price[:5]:
+for cost in lst_descending[:5]:
     print(f"\t{cost}")
 
