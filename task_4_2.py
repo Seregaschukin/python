@@ -19,27 +19,18 @@ def currency_rates(currensy):
     content = response.content.decode(encoding=encodings)
     #print(type(content))
     find_curr = content.find(currensy)
-    interval = find_curr + 200
-    new_str = content[find_curr:interval]
-    find_new_str = new_str.find('<Value>')
-    start_find = find_new_str + 7
-    finish_find = start_find + 7
-    print_find_currensy = new_str[start_find:finish_find]  # 1723:1730
-    #print(f'{print_find_currensy} RUB за 1 единицу валюты')
-    return print_find_currensy
-    # cur_rub = 1
-    # rate = cur_rub / print_find_currensy
-    # return rate
-currensy = input('Введите индекс валюты: ')
+    if currensy in content:
+        interval = find_curr + 200
+        new_str = content[find_curr:interval]
+        find_new_str = new_str.find('<Value>')
+        start_find = find_new_str + 7
+        finish_find = start_find + 7
+        print_find_currensy = new_str[start_find:finish_find]
+        currensy_float = float(print_find_currensy.replace(',', '.'))
+        #print(type(currensy_float)) #Подтверждение типа float
+        return currensy_float
+    else:
+        return None
+
+currensy = input('Введите индекс валюты: ').upper()
 print(f'{currency_rates(currensy)} RUB за 1 единицу {currensy}')
-
-
-
-
-
-
-
-
-
-
-
