@@ -22,5 +22,7 @@
 n = int(input('Введите число для последоввательности: '))
 
 iterator_without_yield = (num for num in range(1, n + 1, 2))
+for i in iterator_without_yield:
+    print('Нечётные числа:', i)
 #print(type(iterator_without_yield))
-print('Нечётные числа', *iterator_without_yield)
+print('Генератор истощен', *iterator_without_yield)
