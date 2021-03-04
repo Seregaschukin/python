@@ -20,3 +20,21 @@
 # StopIteration
 
 
+def iterator_with_yield(nums):
+    for num in range(1, nums + 1, 2):
+        yield num
+
+
+nums = int(input('Введите число для последоввательности: '))
+new_gen = iterator_with_yield(nums)
+for i in new_gen:
+    print('Нечётные числа:', i)
+print('Генератор истощен')
+
+#Повторное использование функции
+# new_gen = iterator_with_yield(6)
+# for i in new_gen:
+#     print('Нечётные числа:', i)
+#
+# #print(type(new_gen))
+# print('Генератор истощен')
