@@ -17,3 +17,54 @@
 #
 # >>> a = calc_cube(5)
 # calc_cube(5: <class 'int'>)
+
+
+#вывод через запятую в одну строку
+def type_logger(func):
+
+    def wrepper(*args, **kwargs):
+        print(", ".join([f"{i}: {type(i)}" for i in args]))
+        print(", ".join([f"'{key}' = {val}: {type(val)}" for key, val in kwargs.items()]))
+        result = func(*args)
+        return result
+    return wrepper
+
+#вывод построчно
+# def type_logger(func):
+#     def wrepper(*args, **kwargs):
+#         for i in args:
+#             print(f'{i}: {type(i)}')
+#
+#         for val, key in kwargs.items():
+#             print((f'{val} = {key} : {type(key)}'))
+#
+#         result = func(*args)
+#         return result
+#
+#     return wrepper
+
+#вывод списком через запятую
+# def type_logger(func):
+#     def wrepper(*args, **kwargs):
+#         spisok = []
+#         for i in args:
+#             spisok.append(f'{i}: {type(i)}')
+#
+#         for val, key in kwargs.items():
+#             spisok.append(f'{val} = {key} : {type(key)}')
+#
+#         print(spisok)
+#
+#         result = func(*args)
+#         return result
+#
+#     return wrepper
+
+@type_logger
+def calc_cube(*args):
+   return args
+
+calc_cube(5,2,'ghfg', {5:6})
+calc_cube('ghfg')
+calc_cube(calc_cube)
+calc_cube(1, a=2.3, b=True, c="q")
